@@ -1,0 +1,4 @@
+[submodule "generate/nixpkgs"]
+	path = generate/nixpkgs
+	url = https://github.com/NixOS/nixpkgs.git
+	branch = master
