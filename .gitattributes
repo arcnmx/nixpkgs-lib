@@ -3,6 +3,6 @@
 /.gitignore export-ignore
 /.github/** export-ignore
 /generate/** export-ignore
-/ci.nix export-ignore
+/ci/** export-ignore
 /shell.nix export-ignore
 /README.md export-ignore
