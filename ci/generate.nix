@@ -7,7 +7,10 @@ in {
   name = "nixpkgs-lib-generate";
   ci.gh-actions = {
     enable = true;
-    checkoutOptions.fetch-depth = 0;
+    checkoutOptions = {
+      fetch-depth = 0;
+      ref = "generate";
+    };
   };
   ci.version = "nix2.4-broken";
   gh-actions.on = {
@@ -27,6 +30,6 @@ in {
       ${generate.generate}/bin/generate-nixpkgs
     '';
     impure = true;
-    environment = [ "CI_PLATFORM" "GITHUB_REF" ];
+    environment = [ "CI_PLATFORM" "GITHUB_REF" "GITHUB_EVENT_NAME" ];
   });
 }
