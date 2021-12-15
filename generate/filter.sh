@@ -61,7 +61,7 @@ else
 	git gc --prune=now
 fi
 
-if [[ ${CI_PLATFORM-} = gh-actions && ${GITHUB_REF-} = refs/heads/generate ]]; then
+if [[ ${CI_PLATFORM-} = gh-actions ]] && [[ ${GITHUB_REF-} = refs/heads/generate || ${GITHUB_EVENT_NAME-} = schedule ]]; then
 	if [[ -n $LIB_CHANGES ]]; then
 		git push origin nixpkgs-lib:nixpkgs-lib
 
