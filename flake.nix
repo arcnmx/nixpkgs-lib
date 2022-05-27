@@ -2,7 +2,7 @@
   description = "nixpkgs/lib mirror";
   outputs = { self }: {
     lib = import ./lib;
-    legacyPackages = self.lib.genAttrs self.lib.systems.supported.hydra (system: {
+    legacyPackages = self.lib.genAttrs self.lib.systems.flakeExposed or self.lib.systems.supported.hydra (system: {
       inherit (self) lib;
     });
     flakes = {
