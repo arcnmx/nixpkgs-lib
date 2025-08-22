@@ -47,7 +47,12 @@ else
 		--target $NIXPKGS_LIB
 		--partial --refs nixpkgs-lib
 		--prune-empty always --no-ff
+		--path '.version' --path 'lib/.version'
 		--path-glob 'lib/*.nix'
+		--path-glob 'lib/deprecated/*.nix'
+		--path-glob 'lib/fileset/*.nix'
+		--path-glob 'lib/network/*.nix'
+		--path-glob 'lib/path/*.nix'
 		--path-glob 'lib/systems/*.nix'
 		"$@"
 	)
