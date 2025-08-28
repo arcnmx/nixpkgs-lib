@@ -83,4 +83,4 @@ name: nixpkgs-lib-flake
 'on':
   push:
     branches:
-    - master
+    - lib-*

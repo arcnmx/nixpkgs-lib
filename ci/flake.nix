@@ -14,6 +14,6 @@ in {
     enable = true;
     checkoutOptions.submodules = false;
   };
-  gh-actions.on.push.branches = [ "master" ];
+  gh-actions.on.push.branches = [ "lib-*" ];
   tasks.flake.inputs = singleton (flake-check "flake" ".");
 }
