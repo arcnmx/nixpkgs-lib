@@ -5,10 +5,11 @@
       nix flake check ${path}
     '';
     impure = true;
+    environment = ["NIX_CONF_DIR" "NIX_USER_CONF_FILES"];
   };
 in {
   name = "nixpkgs-lib-flake";
-  ci.version = "nix2.4";
+  ci.version = "v0.7";
   ci.gh-actions = {
     enable = true;
     checkoutOptions.submodules = false;
