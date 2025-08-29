@@ -12,7 +12,7 @@ in {
       ref = "generate";
     };
   };
-  ci.version = "nix2.4-broken";
+  ci.version = "v0.7";
   gh-actions.on = {
     push = {
       inherit branches;
@@ -27,9 +27,10 @@ in {
   tasks.generate.inputs = singleton (ci.command {
     name = "generate";
     command = ''
+      export NIXPKGS_LIB=''${NIXPKGS_LIB-''${GITHUB_WORKSPACE-${toString ../.}}}
       ${generate.generate}/bin/generate-nixpkgs
     '';
     impure = true;
-    environment = [ "CI_PLATFORM" "GITHUB_REF" "GITHUB_EVENT_NAME" ];
+    environment = [ "CI_PLATFORM" "GITHUB_REF" "GITHUB_EVENT_NAME" "GITHUB_WORKSPACE" ];
   });
 }

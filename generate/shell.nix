@@ -1,7 +1,6 @@
 { pkgs ? import <nixpkgs> { } }: with pkgs; let
   generate = writeShellScriptBin "generate-nixpkgs" ''
-    export NIXPKGS_LIB_GENERATE=${toString ./.}
-    export NIXPKGS_LIB=${toString ../.}
+    export NIXPKGS_LIB=''${NIXPKGS_LIB-${toString ../.}}
     export PATH="$PATH:${git-filter-repo}/bin"
     exec ${runtimeShell} ${./filter.sh} "$@"
   '';
